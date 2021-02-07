@@ -14,6 +14,7 @@
 		6335B56C24BD63AC0088EFD4 /* icon_atk.png in Resources */ = {isa = PBXBuildFile; fileRef = 6335B56724BD63AC0088EFD4 /* icon_atk.png */; };
 		6335B56D24BD63AC0088EFD4 /* icon_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6335B56824BD63AC0088EFD4 /* icon_speed.png */; };
 		6335B57124BD96CA0088EFD4 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6335B57024BD96CA0088EFD4 /* CheckInternet.swift */; };
+		6359756D25C03729001502A7 /* Hero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6359756B25C03729001502A7 /* Hero.xcdatamodeld */; };
 		6366DF1924B8109F005B2329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366DF1824B8109F005B2329 /* AppDelegate.swift */; };
 		6366DF1B24B8109F005B2329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366DF1A24B8109F005B2329 /* SceneDelegate.swift */; };
 		6366DF1D24B8109F005B2329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366DF1C24B8109F005B2329 /* ViewController.swift */; };
@@ -21,6 +22,8 @@
 		6366DF2224B810A1005B2329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6366DF2124B810A1005B2329 /* Assets.xcassets */; };
 		6366DF2524B810A1005B2329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6366DF2324B810A1005B2329 /* LaunchScreen.storyboard */; };
 		636C652324B8559F000BE57B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C652224B8559F000BE57B /* Hero.swift */; };
+		639240F025CFDF80009C7BE6 /* Hero+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240EE25CFDF80009C7BE6 /* Hero+CoreDataClass.swift */; };
+		639240F125CFDF80009C7BE6 /* Hero+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240EF25CFDF80009C7BE6 /* Hero+CoreDataProperties.swift */; };
 		63CA286324B9866800D0F676 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CA285724B9866800D0F676 /* icon120.png */; };
 		63CA286424B9866800D0F676 /* icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CA285824B9866800D0F676 /* icon167.png */; };
 		63CA286524B9866800D0F676 /* icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CA285924B9866800D0F676 /* icon180.png */; };
@@ -44,6 +47,7 @@
 		6335B56724BD63AC0088EFD4 /* icon_atk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_atk.png; sourceTree = "<group>"; };
 		6335B56824BD63AC0088EFD4 /* icon_speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_speed.png; sourceTree = "<group>"; };
 		6335B57024BD96CA0088EFD4 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
+		6359756C25C03729001502A7 /* Hero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hero.xcdatamodel; sourceTree = "<group>"; };
 		6366DF1524B8109F005B2329 /* HeroStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6366DF1824B8109F005B2329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6366DF1A24B8109F005B2329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		6366DF2424B810A1005B2329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6366DF2624B810A1005B2329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		636C652224B8559F000BE57B /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		639240EE25CFDF80009C7BE6 /* Hero+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hero+CoreDataClass.swift"; sourceTree = "<group>"; };
+		639240EF25CFDF80009C7BE6 /* Hero+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hero+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		63CA285724B9866800D0F676 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
 		63CA285824B9866800D0F676 /* icon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon167.png; sourceTree = "<group>"; };
 		63CA285924B9866800D0F676 /* icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon180.png; sourceTree = "<group>"; };
@@ -98,8 +104,8 @@
 		6366DF1724B8109F005B2329 /* HeroStats */ = {
 			isa = PBXGroup;
 			children = (
-				6335B57024BD96CA0088EFD4 /* CheckInternet.swift */,
 				6366DF2C24B82348005B2329 /* Model */,
+				6335B57024BD96CA0088EFD4 /* CheckInternet.swift */,
 				6366DF1824B8109F005B2329 /* AppDelegate.swift */,
 				6366DF1A24B8109F005B2329 /* SceneDelegate.swift */,
 				63176C7024BC088C00D9D3F3 /* CustomCollectionViewCell.swift */,
@@ -110,6 +116,7 @@
 				63CA285624B9865C00D0F676 /* Assets */,
 				6366DF2324B810A1005B2329 /* LaunchScreen.storyboard */,
 				6366DF2624B810A1005B2329 /* Info.plist */,
+				6359756B25C03729001502A7 /* Hero.xcdatamodeld */,
 			);
 			path = HeroStats;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				636C652224B8559F000BE57B /* Hero.swift */,
+				639240EE25CFDF80009C7BE6 /* Hero+CoreDataClass.swift */,
+				639240EF25CFDF80009C7BE6 /* Hero+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,8 +248,11 @@
 				63176C7124BC088C00D9D3F3 /* CustomCollectionViewCell.swift in Sources */,
 				6366DF1924B8109F005B2329 /* AppDelegate.swift in Sources */,
 				6366DF1B24B8109F005B2329 /* SceneDelegate.swift in Sources */,
+				639240F125CFDF80009C7BE6 /* Hero+CoreDataProperties.swift in Sources */,
 				63CA287224B9F0DD00D0F676 /* HeroDetailsViewController.swift in Sources */,
+				639240F025CFDF80009C7BE6 /* Hero+CoreDataClass.swift in Sources */,
 				636C652324B8559F000BE57B /* Hero.swift in Sources */,
+				6359756D25C03729001502A7 /* Hero.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +450,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6359756B25C03729001502A7 /* Hero.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6359756C25C03729001502A7 /* Hero.xcdatamodel */,
+			);
+			currentVersion = 6359756C25C03729001502A7 /* Hero.xcdatamodel */;
+			path = Hero.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6366DF0D24B8109E005B2329 /* Project object */;
 }

@@ -7,32 +7,13 @@
 //
 
 import UIKit
-
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    func downloaded(link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
+import CoreData
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    var heroes = [Hero]()
-    var sortedHeroes = [Hero]()
+    var hero:[Hero]?
+    var heroes = [HeroStats]()
+    var sortedHeroes = [HeroStats]()
     let rolesHero = ["Carry","Durable","Disabler","Escape","Initiator","Jungler","Nuker","Pusher","Support","All",nil]
     var isSorted = false
 
@@ -40,17 +21,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var collectionView: UICollectionView!
     
     var baseUrl = "https://api.opendota.com"
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        getJSON{
-            print("Success!")
-            self.collectionView.reloadData()
-//            self.tableView.reloadData()
-        };
+        if checkDB(){
+            getData();
+        }else{
+            getJSON{
+                print("Success!")
+                self.collectionView.reloadData()
+    //            self.tableView.reloadData()
+            };
+        }
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -66,13 +54,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
+    //Check Core Data if ever saved the data before
+    func checkDB() -> Bool {
+        do {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
+            let count  = try context.count(for: request)
+            return count == 0
+        } catch {
+            return true
+        }
+    }
+    
     //request API
     func getJSON(completed: @escaping() -> ()){
         let url = URL (string: "https://api.opendota.com/api/herostats")
         URLSession.shared.dataTask(with: url!) { (data,response,error) in
             if error == nil {
                 do{
-                    self.heroes = try JSONDecoder().decode([Hero].self, from: data!)
+                    self.heroes = try JSONDecoder().decode([HeroStats].self, from: data!)
                     DispatchQueue.main.async {
                         completed()
                     }
@@ -92,6 +91,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 }
             }
         }.resume()
+    }
+    
+    //reload from Core Data
+    func getData(){
+        do{
+            self.hero = try context.fetch(Hero.fetchRequest())
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        catch{
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -186,6 +198,27 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
     }
 }
 

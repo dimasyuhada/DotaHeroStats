@@ -31,8 +31,8 @@ extension UIImageView {
 
 class HeroDetailsViewController: UIViewController {
     
-    var hero:Hero?
-    var similarHeroes = [Hero]()
+    var hero:HeroStats?
+    var similarHeroes = [HeroStats]()
     var strRole = ""
     var strUrl1 = ""
     var strUrl2 = ""
@@ -52,7 +52,6 @@ class HeroDetailsViewController: UIViewController {
     @IBOutlet weak var imgOtherHero1: UIImageView!
     @IBOutlet weak var imgOtherHero2: UIImageView!
     @IBOutlet weak var imgOtherHero3: UIImageView!
-    
     
     var baseUrl = "https://api.opendota.com"
     
@@ -80,7 +79,7 @@ class HeroDetailsViewController: UIViewController {
     }
 
     @objc func getSimilarHeroes(){
-        var sortedHeroes : [Hero] = []
+        var sortedHeroes : [HeroStats] = []
         switch hero?.primary_attr {
             case ("agi"):
                 sortedHeroes = similarHeroes.sorted(by: {$0.move_speed > $1.move_speed})
@@ -104,5 +103,4 @@ class HeroDetailsViewController: UIViewController {
         imgOtherHero2.downloadedFrom(link: strUrl2)
         imgOtherHero3.downloadedFrom(link: strUrl3)
     }
-    
 }

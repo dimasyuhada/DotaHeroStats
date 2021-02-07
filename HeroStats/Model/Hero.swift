@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Hero: Codable {
+struct HeroStats: Codable {
     var id: Int = 0
     var localized_name: String = ""
     var primary_attr: String = ""
